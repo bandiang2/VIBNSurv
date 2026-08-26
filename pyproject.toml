@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vibnsurv"
+version = "1.0.0"
+description = "VIBNSurv: Variational Information Bottleneck Neural Survival Model (IJCNN 2024)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Armand Bandiang Massoua" },
+    { name = "Abdoulaye Banire Diallo" },
+    { name = "Mohamed Bouguessa" },
+]
+keywords = ["survival analysis", "time-to-event", "information bottleneck", "deep learning", "pytorch"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=1.10",
+    "numpy>=1.20",
+    "pandas>=1.3",
+    "scikit-learn>=1.0",
+    "scikit-survival>=0.17",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+datasets = ["pycox>=0.2.3"]
+baselines = ["pycox>=0.2.3", "torchtuples", "lifelines"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+include = ["vibnsurv*"]
